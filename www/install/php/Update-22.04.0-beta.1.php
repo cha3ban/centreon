@@ -380,7 +380,7 @@ function addNewUnifiedSqlOutput(CentreonDB $pearDB): void
 /**
  * Migrate broker outputs 'sql' and 'storage' to a unique output 'unified_sql'
  *
- * @param CentreonDb $pearDB
+ * @param CentreonDB $pearDB
  * @return void
  */
 function migrateBrokerConfigOutputsToUnifiedSql(CentreonDB $pearDB): void
@@ -494,8 +494,6 @@ function migrateBrokerConfigOutputsToUnifiedSql(CentreonDB $pearDB): void
                 }
             }
         }
-        $stmt->queryString;
-
         $stmt->execute();
 
         // Delete former outputs
