@@ -144,11 +144,10 @@ try {
 
     $errorMessage = "Unable to alter table security_token";
     $pearDB->query("ALTER TABLE `security_token` MODIFY `token` varchar(4096)");
-    /**
-     * Add new UnifiedSQl broker output
-     */
-    $pearDB->beginTransaction();
 
+    /**
+     * new UnifiedSQl broker output
+     */
     $errorMessage = 'Unable to update cb_type table ';
     $pearDB->query(
         "UPDATE `cb_type` set type_name = 'Perfdata Generator (Centreon Storage) - DEPRECATED'
@@ -161,11 +160,10 @@ try {
 
     $errorMessage = "Unable to add 'unifed_sql' broker configuration output";
     addNewUnifiedSqlOutput($pearDB);
-    $pearDB->commit();
 
-    $pearDB->beginTransaction();
     $errorMessage = "Unable to migrate broker config to unified_sql";
     migrateBrokerConfigOutputsToUnifiedSql($pearDB);
+
     $pearDB->commit();
 } catch (\Exception $e) {
     if ($pearDB->inTransaction()) {
