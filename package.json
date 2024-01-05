@@ -99,7 +99,7 @@
     "@mui/material": "^5.4.0",
     "@mui/styles": "^5.3.0",
     "@visx/visx": "2.9.0",
-    "axios": "^0.25.0",
+    "axios": "^1.6.4",
     "centreon-frontend": "git+https://centreon@github.com/centreon/centreon-frontend.git#develop",
     "classnames": "^2.3.1",
     "clsx": "^1.1.1",
